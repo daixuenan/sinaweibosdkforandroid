@@ -4,6 +4,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         
@@ -12,21 +13,11 @@ buildscript {
 
 allprojects {
     repositories {
-        Config.repos.each { mavenUrl ->
-            maven {
-                url mavenUrl
-            }
-        }
         google()
         jcenter()
-    }
-
-    configurations.all {
-        resolutionStrategy.force "com.iqiyi.qyui:richtext:0.0.6.20200115114159"
+        maven { url 'https://jitpack.io' }
     }
 }
-
-apply from: "$rootDir/gradle/androidX/androidX.gradle"
 
 task clean(type: Delete) {
     delete rootProject.buildDir
